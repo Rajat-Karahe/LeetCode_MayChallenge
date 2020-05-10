@@ -1,24 +1,34 @@
-// Almost same as OPtim
+// Memory :- 60mb
+// Time :- better than 33% of submissions
 
+static int x = []() {ios::sync_with_stdio(false); cin.tie(0); return 0; } ();
 class Solution {
 public:
     int findJudge(int N, vector<vector<int>>& trust) {
         vector<int> forward(N+1, 0);
         vector<int> backward(N+1, 0);
         
-        for(int i=0; i<trust.size(); i++){
-            forward[trust[i][0]] += 1;
-            backward[trust[i][1]] += 1;
+        int length = trust.size();
+        for(int i=0; i<length; i++){
+            int first = trust[i][0];
+            int second = trust[i][1];
+            forward[first]++;
+            backward[second]++;
         }
         
+        int count = 0;
+        int ans = -1;
         for(int i=1; i<=N; i++){
-            if(forward[i] == 0){
-                if(backward[i] == N-1){
-                    return i;
-                }
+            if(forward[i] == 0 && backward[i] == N-1){
+                count++;
+                ans = i;
             }
         }
        
-        return -1;
+        if(count > 1){
+            return -1;
+        }
+        
+        return ans;
     }
 };
