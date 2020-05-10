@@ -9,6 +9,8 @@
 
 //If the town judge exists and can be identified, return the label of the town judge.  Otherwise, return -1.
 
+Memory :- 72mb, Time :- better than 9% of submissions
+
 
 class Solution {
 public:
