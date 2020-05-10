@@ -1,3 +1,6 @@
+// Memory :- 62mb;
+// Time :- better than 17% of submissions
+
 class Solution {
 public:
     int findJudge(int N, vector<vector<int>>& trust) {
